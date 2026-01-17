@@ -1,0 +1,149 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage[top=1.6cm, bottom=1.6cm, left=1.6cm, right=1.6cm, footskip=0.8cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{calc}
+\usepackage{graphicx}
+
+% Keep all links black by default; we'll color only [Repo] links blue
+\hypersetup{colorlinks=true,urlcolor=black,linkcolor=black}
+
+\raggedright
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Optional version string injected by CI
+\makeatletter
+\newcommand{\versionstr}{}
+\IfFileExists{version.tex}{\input{version.tex}}{}
+\makeatother
+
+% Section style
+\titleformat{\section}{\bfseries\normalsize}{}{0pt}{}[\vspace{2pt}\titlerule]
+\titlespacing{\section}{0pt}{6pt}{4pt}
+
+% Compact bullets
+\renewcommand\labelitemi{\raisebox{0.25ex}{\small$\bullet$}}
+\newenvironment{highlights}{\begin{itemize}[topsep=2pt,parsep=0pt,partopsep=0pt,itemsep=2pt,leftmargin=12pt]\small}{\end{itemize}}
+
+% Left text + right date row
+\newcommand{\entryrow}[2]{%
+  \noindent\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}p{\linewidth-3.2cm} >{\raggedleft\arraybackslash}p{3.2cm}}
+  #1 & {\small #2} \\
+  \end{tabular*}\vspace{2pt}
+}
+
+% Header block
+\newcommand{\Header}{
+  {\fontsize{18pt}{18pt}\selectfont \textbf{Yuvaraj R}}\\[3pt]
+  \small
+  Chennai, Tamil Nadu, India \, | \,
+  \href{mailto:e0223011@sriher.edu.in}{e0223011@sriher.edu.in} \, | \,
+  +91-XXXXXXXXXX \, | \,
+  \href{https://linkedin.com/in/yuvaraj-ramu-89b80b285}{LinkedIn} \, | \,
+  \href{https://github.com/yuvaraj2626}{GitHub}
+}
+
+% Blue [Repo] link helper (only repo badges appear blue)
+\newcommand{\Repo}[1]{\textcolor{blue}{\href{#1}{[Repo]}}}
+
+% Safe certificate image include (compiles even if file is missing)
+\newcommand{\CertImg}[2]{%
+  \begin{minipage}[t]{0.48\linewidth}\centering
+    \IfFileExists{#1}{\includegraphics[width=\linewidth]{#1}}{\fbox{\parbox[c][3cm][c]{\linewidth}{\centering Missing: #1}}}\\[-2pt]
+    \centering #2
+  \end{minipage}
+}
+
+\begin{document}
+
+\Header
+
+\vspace{4pt}
+
+% EDUCATION
+\section{Education}
+\entryrow{\textbf{B.Tech – Computer Science (Cyber Security \& IoT)}, Sri Ramachandra Faculty of Engineering and Technology, Chennai}{2023 -- 2027}
+\entryrow{\textbf{Higher Secondary Education}, Shri Krishnaswamy Matric Hr. Sec. School, Chennai}{2009 -- 2023}
+
+% SKILLS SUMMARY
+\section{Skills Summary}
+\small
+\textbf{Languages:} Python, C, C++, HTML, CSS, Bootstrap \\
+\textbf{Databases:} PostgreSQL, MongoDB, SQL \\
+\textbf{IoT/Tools:} Arduino, Node-RED, MQTT, Sensors \\
+\textbf{Platforms:} Kali Linux, AWS, Azure, Linux \\
+\textbf{Soft:} Communication, Problem Solving, Adaptability
+
+% WORK EXPERIENCE
+\section{Work Experience}
+\entryrow{\textbf{Research Intern}, SRIHER}{2023 -- Present}
+\begin{highlights}
+  \item Achieved early spoilage alerts by streaming sensor data to a Django dashboard and scoring risk with regression.
+  \item Achieved uninterrupted data capture by adding offline buffering on devices and replaying to PostgreSQL after outages.
+\end{highlights}
+
+\entryrow{\textbf{Industrial Internship}, Arka Automaations Ltd. \, \footnotesize\Repo{https://github.com/yuvaraj2626/Industrial-Internship-Arka-Automaations-}}{Aug 2025}
+\begin{highlights}
+  \item Achieved secure data flow by integrating Node-RED (MQTT) $\rightarrow$ PostgreSQL $\rightarrow$ Django with role-scoped DB users.
+  \item Achieved resilient monitoring by enabling local+cloud backups and auto-resync to prevent data loss.
+\end{highlights}
+
+% PROJECTS
+\section{Projects}
+\entryrow{\textbf{AI-Enhanced IoT Cold Storage Monitoring (Apples)} \, \footnotesize\Repo{https://github.com/yuvaraj2626/Cold-storage-monitoring}}{Jan 2024}
+\begin{highlights}
+  \item Achieved predictive alerts by estimating ethylene trends from sensor data and notifying operators on threshold breaches.
+\end{highlights}
+
+\entryrow{\textbf{PennyAI: Expense Management Dashboard} \, \footnotesize\Repo{https://github.com/yuvaraj2626/PennyAI-expense-dashboard}}{Feb 2024}
+\begin{highlights}
+  \item Achieved spend insights by building Django+SQL dashboards with simple forecasting and category analytics.
+\end{highlights}
+
+\entryrow{\textbf{Smartphone-Compatible Retinal Anomaly Detector} \, \footnotesize\Repo{https://github.com/yuvaraj2626/Retinal-anomaly-detector}}{Aug 2025}
+\begin{highlights}
+  \item Achieved quick screening by serving a lightweight image model with web visualizations for review.
+\end{highlights}
+
+% PUBLICATIONS
+\section{Publications}
+\entryrow{\textbf{IoT-Enabled Cold Storage Monitoring System for Fruits (Apple)}}{Nov 2024}
+\small ICCIC 2024, Springer (Vasavi College, Hyderabad). Accepted (upcoming).
+
+\entryrow{\textbf{AI-Enabled IoT Cold Storage for Post-Harvest Apple Shelf Life}}{Sep 2025}
+\small IC-STEEH 2025, VIT Vellore. Prize-winning; accepted (upcoming).
+
+% CERTIFICATES (exactly the 2 photos you have)
+\section{Certificates}
+\small
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} c c }
+\CertImg{images/cert-linux-udemy.png}{Complete Linux Training — Udemy \, (2025)}
+&
+\CertImg{images/cert-network-security-greatlearning.png}{Network Security — Great Learning \, (2024)}
+\end{tabular*}
+
+% ACHIEVEMENTS
+\section{Achievements \& Activities}
+\small
+1st — Quiz, CASYUM'24 (SRM) \, | \,
+2nd — Paper, Flair2k24 (Loyola ICAM) \, | \,
+Finalist — IEEE YESIST'25 \, | \,
+Top 25 — GDG HackaTonic'25 (PSG) \, | \,
+Board Member — Robotics \& IoT Club (SRET) \, | \,
+Student Council — SRIHER
+
+\vspace{6pt}
+\hfill {\footnotesize Last updated: \versionstr}
+
+\end{document}
